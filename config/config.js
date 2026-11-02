@@ -8,3 +8,13 @@ const development = {
   port : process.env.DB_PORT,
   dialect: "postgres",
 };
+
+const production = {
+  user_env_variable: "POSTGRES_URL",
+  dialect: "postgres",
+  dialectOptions: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
+}
