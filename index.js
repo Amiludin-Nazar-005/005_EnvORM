@@ -7,3 +7,12 @@ app.use(express.urlencoded({ extended: false }));
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+
+db.sequelize.sync().then((result) => {
+    app.listen(port, () => {
+        console.log(`Server istarted`);
+    })
+})
+.catch((err) => {
+    console.log(err);
+})
